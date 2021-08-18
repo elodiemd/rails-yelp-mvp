@@ -1,0 +1,24 @@
+<div class="card mx-auto py-10 text-center" style="width: 30rem;">
+  <div class="card-body mx-auto">
+    <div class="card-title">
+      <h3><%= @restaurant.name %> </h3>
+    </div>
+    <div class="card-text">
+      <p><%= @restaurant.address %></p>
+    </div>
+  <%= link_to 'leave Review', new_restaurant_review_path(@restaurant), class: "btn btn-dark" %>
+  </div>
+  <% @restaurant.reviews.each do |review| %>
+        <div class="card mx-auto mb-5" style="width: 12rem;">
+          <div class="card-body">
+            <div class="card-title">
+              <h5><strong><%= review.rating %> </strong></h5>
+            </div>
+            <div class="card-text">
+              <p><%= review.content %></p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+  <%= link_to 'Back', restaurants_path %>
+</div>
